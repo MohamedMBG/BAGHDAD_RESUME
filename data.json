@@ -1,0 +1,55 @@
+{
+  "works": [
+    {
+      "title": "E-Commerce Android App",
+      "description": "Full-featured e-commerce mobile application with user authentication, product catalog, shopping cart, and payment integration.",
+      "client": "",
+      "image": ""
+    },
+    {
+      "title": "Business Website Portfolio",
+      "description": "Modern, responsive website for a digital agency featuring dynamic content management and optimized performance.",
+      "client": "",
+      "image": ""
+    },
+    {
+      "title": "Task Management System",
+      "description": "Comprehensive task management application with real-time collaboration features and intuitive user interface.",
+      "client": "",
+      "image": ""
+    }
+  ],
+  "skills": {
+    "Mobile Development": ["Android Studio", "Java", "Kotlin", "XML", "SQLite", "Firebase", "API Integration"],
+    "Web Development": ["HTML5", "CSS3", "JavaScript", "React", "Node.js", "PHP", "MySQL"],
+    "Tools & Technologies": ["Git", "GitHub", "VS Code", "Figma", "Postman", "Docker", "Linux"]
+  },
+  "education": [
+    {
+      "date": "2021 - Present",
+      "title": "Engineering Student",
+      "subtitle": "University",
+      "description": "Currently pursuing my engineering degree with a focus on software development and computer science fundamentals."
+    },
+    {
+      "date": "2023 - 2024",
+      "title": "ALX Software Engineering Program",
+      "subtitle": "Certificate Completed",
+      "description": "Completed comprehensive software engineering bootcamp covering full-stack development, algorithms, data structures, and industry best practices."
+    }
+  ],
+  "experience": [
+    {
+      "date": "2024 - Present",
+      "title": "Freelance Developer",
+      "subtitle": "Self-Employed",
+      "description": "Providing custom Android app development and website creation services to clients worldwide. Specializing in modern, responsive designs and robust functionality."
+    },
+    {
+      "date": "2021 - 2024",
+      "title": "Main Developer",
+      "subtitle": "Media Space Solutions",
+      "description": "Served as the main developer for 3 years, leading development projects, architecting solutions, and delivering high-quality applications for diverse clients."
+    }
+  ]
+}

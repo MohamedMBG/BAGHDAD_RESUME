@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAGHDAD Mohamed - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --light-sage: #c4d2c4;
+            --sage: #8db09a;
+            --teal: #5a8a6b;
+            --dark-teal: #3d5a4a;
+            --charcoal: #2d3e3f;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--charcoal);
+            background: var(--white);
+        }
+
+        .timeline-item {
+            width: 100%;
+            left: 0 !important;
+            padding-left: 70px;
+        }
+
+        .timeline-item::after {
+            left: 20px !important;
+        }
+
+        .timeline::before {
+            left: 30px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .stat-item {
+            background: var(--light-gray);
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            display: block;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="hero-content animate__animated animate__fadeInDown">
+                <img src="data:image/jpeg;base64,/9j/..." alt="BAGHDAD Mohamed" class="profile-img">
+                <h1>BAGHDAD Mohamed</h1>
+                <p class="subtitle">Android & Web Developer</p>
+                <p class="hero-description">Professional developer with 2+ years of experience creating innovative mobile applications and modern websites. Passionate about clean code and user-centered design.</p>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <a href="#about" class="nav-item">About</a>
+                <a href="#education" class="nav-item">Education</a>
+                <a href="#experience" class="nav-item">Experience</a>
+                <a href="#skills" class="nav-item">Skills</a>
+                <a href="#projects" class="nav-item">Projects</a>
+                <a href="#contact" class="nav-item">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">2+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">Years at Media Space</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">21</span>
+                        <span class="stat-label">Years Old</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline" id="education-list"></div>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline" id="experience-list"></div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid" id="skills-grid"></div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid" id="projects-grid"></div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <p>I'm always interested in new opportunities and collaborations. Whether you have a project in mind or just want to connect, feel free to reach out!</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>Email</h3>
+                        <a href="mailto:baghdad.mohamed@email.com">baghdad.mohamed@email.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <h3>LinkedIn</h3>
+                        <a href="#" target="_blank">linkedin.com/in/baghdadmohamed</a>
+                    </div>
+                    <div class="contact-item">
+                        <h3>GitHub</h3>
+                        <a href="#" target="_blank">github.com/baghdadmohamed</a>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Phone</h3>
+                        <a href="tel:+1234567890">+123 456 7890</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.backdropFilter = 'blur(10px)';
+            } else {
+                nav.style.background = '#ffffff';
+                nav.style.backdropFilter = 'none';
+            }
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate__fadeInUp');
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+
+        fetch('/data').then(r => r.json()).then(data => {
+            const skillsGrid = document.getElementById('skills-grid');
+            Object.entries(data.skills).forEach(([cat, tags]) => {
+                const c = document.createElement('div');
+                c.className = 'skill-category';
+                c.innerHTML = `<h3>${cat}</h3>`;
+                const t = document.createElement('div');
+                t.className = 'skill-tags';
+                tags.forEach(tag => {
+                    const s = document.createElement('span');
+                    s.className = 'skill-tag';
+                    s.textContent = tag;
+                    t.appendChild(s);
+                });
+                c.appendChild(t);
+                skillsGrid.appendChild(c);
+            });
+
+            const eduList = document.getElementById('education-list');
+            data.education.forEach(item => {
+                const e = document.createElement('div');
+                e.className = 'timeline-item';
+                e.innerHTML = `<div class="timeline-content"><div class="timeline-date">${item.date}</div><div class="timeline-title">${item.title}</div><div class="timeline-subtitle">${item.subtitle}</div><p>${item.description}</p></div>`;
+                eduList.appendChild(e);
+            });
+
+            const expList = document.getElementById('experience-list');
+            data.experience.forEach(item => {
+                const e = document.createElement('div');
+                e.className = 'timeline-item';
+                e.innerHTML = `<div class="timeline-content"><div class="timeline-date">${item.date}</div><div class="timeline-title">${item.title}</div><div class="timeline-subtitle">${item.subtitle}</div><p>${item.description}</p></div>`;
+                expList.appendChild(e);
+            });
+
+            const projGrid = document.getElementById('projects-grid');
+            data.works.forEach(work => {
+                const card = document.createElement('div');
+                card.className = 'project-card';
+                const imgPart = work.image ? `<img src="${work.image}" alt="${work.title}"/>` : '📷';
+                card.innerHTML = `<div class="project-image">${imgPart}</div><div class="project-content"><h3 class="project-title">${work.title}</h3><p class="project-description">${work.description}</p></div>`;
+                projGrid.appendChild(card);
+            });
+
+            document.querySelectorAll('.timeline-item, .project-card, .skill-category').forEach(el => {
+                el.style.opacity = '0';
+                el.classList.add('animate__animated');
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

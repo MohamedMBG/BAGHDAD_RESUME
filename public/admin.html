@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <style>
+        body{font-family:Arial, sans-serif;margin:40px;}
+        form{margin-bottom:30px;padding:20px;border:1px solid #ccc;border-radius:8px;}
+        input, textarea{display:block;margin-bottom:10px;padding:8px;width:300px;}
+        button{padding:8px 12px;}
+    </style>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <form method="POST" action="/admin/logout">
+        <button type="submit">Logout</button>
+    </form>
+    <h2>Add Work</h2>
+    <form method="POST" action="/admin/work" enctype="multipart/form-data">
+        <input type="text" name="title" placeholder="Title" required>
+        <input type="text" name="description" placeholder="Description" required>
+        <input type="text" name="client" placeholder="Client" required>
+        <input type="text" name="link" placeholder="Image Link">
+        <input type="file" name="image">
+        <button type="submit">Add Work</button>
+    </form>
+    <h2>Add Skill</h2>
+    <form method="POST" action="/admin/skill">
+        <input type="text" name="category" placeholder="Category" required>
+        <input type="text" name="tags" placeholder="Tags comma separated" required>
+        <button type="submit">Add Skill</button>
+    </form>
+    <h2>Add Education</h2>
+    <form method="POST" action="/admin/education">
+        <input type="text" name="date" placeholder="Date" required>
+        <input type="text" name="title" placeholder="Title" required>
+        <input type="text" name="subtitle" placeholder="Subtitle" required>
+        <textarea name="description" placeholder="Description" required></textarea>
+        <button type="submit">Add Education</button>
+    </form>
+    <h2>Add Experience</h2>
+    <form method="POST" action="/admin/experience">
+        <input type="text" name="date" placeholder="Date" required>
+        <input type="text" name="title" placeholder="Title" required>
+        <input type="text" name="subtitle" placeholder="Subtitle" required>
+        <textarea name="description" placeholder="Description" required></textarea>
+        <button type="submit">Add Experience</button>
+    </form>
+</body>
+</html>
