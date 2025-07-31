@@ -211,7 +211,8 @@
             data.works.forEach(work => {
                 const card = document.createElement('div');
                 card.className = 'project-card';
-                const imgPart = work.image ? `<img src="${work.image}" alt="${work.title}"/>` : '📷';
+                const imgSrc = (work.images && work.images.length) ? work.images[0] : work.image;
+                const imgPart = imgSrc ? `<img src="${imgSrc}" alt="${work.title}"/>` : '📷';
                 card.innerHTML = `<div class="project-image">${imgPart}</div><div class="project-content"><h3 class="project-title">${work.title}</h3><p class="project-description">${work.description}</p></div>`;
                 projGrid.appendChild(card);
             });

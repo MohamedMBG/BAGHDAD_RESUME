@@ -65,15 +65,32 @@ app.post('/admin/logout', (req, res) => {
   });
 });
 
-app.post('/admin/work', upload.single('image'), (req, res) => {
+app.post('/admin/work', upload.array('images'), (req, res) => {
   if (!req.session.loggedIn) return res.status(401).send('Unauthorized');
   const data = loadData();
-  const { title, description, client, link } = req.body;
-  let image = link;
-  if (req.file) {
-    image = '/uploads/' + req.file.filename;
+  const { title, description, client, links, link } = req.body;
+
+  const images = [];
+
+  // parse image links from textarea (comma or newline separated)
+  const linkInput = links || link || '';
+  if (linkInput) {
+    const parts = Array.isArray(linkInput) ? linkInput : [linkInput];
+    parts.forEach(p => {
+      p.split(/[,\n]/).forEach(l => {
+        const trimmed = l.trim();
+        if (trimmed) images.push(trimmed);
+      });
+    });
   }
-  data.works.push({ title, description, client, image });
+
+  if (req.files) {
+    req.files.forEach(file => {
+      images.push('/uploads/' + file.filename);
+    });
+  }
+
+  data.works.push({ title, description, client, images });
   saveData(data);
   res.redirect('/admin');
 });

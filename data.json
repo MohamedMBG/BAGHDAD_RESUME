@@ -4,25 +4,49 @@
       "title": "E-Commerce Android App",
       "description": "Full-featured e-commerce mobile application with user authentication, product catalog, shopping cart, and payment integration.",
       "client": "",
-      "image": ""
+      "images": []
     },
     {
       "title": "Business Website Portfolio",
       "description": "Modern, responsive website for a digital agency featuring dynamic content management and optimized performance.",
       "client": "",
-      "image": ""
+      "images": []
     },
     {
       "title": "Task Management System",
       "description": "Comprehensive task management application with real-time collaboration features and intuitive user interface.",
       "client": "",
-      "image": ""
+      "images": []
     }
   ],
   "skills": {
-    "Mobile Development": ["Android Studio", "Java", "Kotlin", "XML", "SQLite", "Firebase", "API Integration"],
-    "Web Development": ["HTML5", "CSS3", "JavaScript", "React", "Node.js", "PHP", "MySQL"],
-    "Tools & Technologies": ["Git", "GitHub", "VS Code", "Figma", "Postman", "Docker", "Linux"]
+    "Mobile Development": [
+      "Android Studio",
+      "Java",
+      "Kotlin",
+      "XML",
+      "SQLite",
+      "Firebase",
+      "API Integration"
+    ],
+    "Web Development": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "React",
+      "Node.js",
+      "PHP",
+      "MySQL"
+    ],
+    "Tools & Technologies": [
+      "Git",
+      "GitHub",
+      "VS Code",
+      "Figma",
+      "Postman",
+      "Docker",
+      "Linux"
+    ]
   },
   "education": [
     {
