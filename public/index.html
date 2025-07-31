@@ -173,7 +173,7 @@
             });
         }, observerOptions);
 
-        fetch('/data').then(r => r.json()).then(data => {
+        fetch('data').then(r => r.json()).then(data => {
             const skillsGrid = document.getElementById('skills-grid');
             Object.entries(data.skills).forEach(([cat, tags]) => {
                 const c = document.createElement('div');

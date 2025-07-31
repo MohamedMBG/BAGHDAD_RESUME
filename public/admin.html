@@ -8,11 +8,11 @@
 </head>
 <body class="form-page">
     <h1>Admin Dashboard</h1>
-    <form method="POST" action="/admin/logout">
+    <form method="POST" action="admin/logout">
         <button type="submit">Logout</button>
     </form>
     <h2>Add Work</h2>
-    <form method="POST" action="/admin/work" enctype="multipart/form-data">
+    <form method="POST" action="admin/work" enctype="multipart/form-data">
         <input type="text" name="title" placeholder="Title" required>
         <input type="text" name="description" placeholder="Description" required>
         <input type="text" name="client" placeholder="Client" required>
@@ -21,13 +21,13 @@
         <button type="submit">Add Work</button>
     </form>
     <h2>Add Skill</h2>
-    <form method="POST" action="/admin/skill">
+    <form method="POST" action="admin/skill">
         <input type="text" name="category" placeholder="Category" required>
         <input type="text" name="tags" placeholder="Tags comma separated" required>
         <button type="submit">Add Skill</button>
     </form>
     <h2>Add Education</h2>
-    <form method="POST" action="/admin/education">
+    <form method="POST" action="admin/education">
         <input type="text" name="date" placeholder="Date" required>
         <input type="text" name="title" placeholder="Title" required>
         <input type="text" name="subtitle" placeholder="Subtitle" required>
@@ -35,7 +35,7 @@
         <button type="submit">Add Education</button>
     </form>
     <h2>Add Experience</h2>
-    <form method="POST" action="/admin/experience">
+    <form method="POST" action="admin/experience">
         <input type="text" name="date" placeholder="Date" required>
         <input type="text" name="title" placeholder="Title" required>
         <input type="text" name="subtitle" placeholder="Subtitle" required>
