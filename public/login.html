@@ -3,14 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin Login</title>
-    <style>
-        body{font-family:Arial, sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;background:#f5f5f5;}
-        form{background:#fff;padding:20px;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
-        input{display:block;margin-bottom:10px;padding:8px;width:200px;}
-        button{padding:8px 12px;}
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="form-page">
     <form method="POST" action="/admin/login">
         <h2>Admin Login</h2>
         <input type="text" name="username" placeholder="Username" required>
