@@ -2,26 +2,30 @@
   "works": [
     {
       "title": "E-Commerce Android App",
-      "description": "Full-featured e-commerce mobile application with user authentication, product catalog, shopping cart, and payment integration.",
-      "client": "",
+      "description": "Full-featured e-commerce mobile application with user authentication, product catalog, shopping cart, and payment integration. Built with modern Android development practices using Kotlin and Firebase.",
+      "client": "Featured Project",
+      "category": "mobile featured",
       "images": []
     },
     {
       "title": "Business Website Portfolio",
-      "description": "Modern, responsive website for a digital agency featuring dynamic content management and optimized performance.",
-      "client": "",
+      "description": "Modern, responsive website for a digital agency featuring dynamic content management, optimized performance, and seamless user experience across all devices.",
+      "client": "Digital Agency",
+      "category": "web",
       "images": []
     },
     {
       "title": "Task Management System",
-      "description": "Comprehensive task management application with real-time collaboration features and intuitive user interface.",
-      "client": "",
+      "description": "Comprehensive task management application with real-time collaboration features, intuitive user interface, and advanced project tracking capabilities.",
+      "client": "Internal Project",
+      "category": "web",
       "images": []
     },
     {
       "title": "B&B car renting",
-      "description": "a car renting management application with reservation system for clients",
+      "description": "A comprehensive car rental management application with reservation system for clients, featuring booking management, payment processing, and fleet tracking.",
       "client": "B&B car renting",
+      "category": "mobile featured",
       "images": [
         "/uploads/baae32db3ea902c50274269ff0e3346c",
         "/uploads/47b89ec79b9ab9356aa0470d94b154ba",
