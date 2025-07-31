@@ -1162,4 +1162,39 @@ footer {
     .project-stats {
         flex-wrap: wrap;
     }
+
+
+}
+@media (max-width: 480px) {
+    header {
+        padding: 60px 0;
+    }
+    .container {
+        padding: 0 10px;
+    }
+    h1 {
+        font-size: 1.6rem;
+    }
+    .subtitle {
+        font-size: 1rem;
+    }
+    .profile-img {
+        width: 120px;
+        height: 120px;
+    }
+    nav {
+        padding: 10px 0;
+    }
+    .nav-container {
+        gap: 15px;
+    }
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    .project-card.featured {
+        grid-template-columns: 1fr;
+    }
+    .project-card.featured .project-content {
+        padding: 20px;
+    }
 }
