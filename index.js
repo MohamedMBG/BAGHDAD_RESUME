@@ -19,11 +19,18 @@ const upload = multer({ dest: uploadsDir });
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
 app.use(session({
   secret: 'secret-key',
   resave: false,
   saveUninitialized: false,
 }));
+
+// Serve static files (HTML, CSS, JS, images)
+app.use(express.static(__dirname));
+
+// Serve uploaded files
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 const DATA_FILE = path.join(__dirname, 'data.json');
 
@@ -43,9 +50,6 @@ function saveData(data) {
   fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2));
 }
 
-// Serve static files (like CSS or uploaded images)
-app.use(express.static(__dirname));
-
 // Routes
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
@@ -64,33 +68,13 @@ app.get('/admin', (req, res) => {
   }
 });
 
-// GET routes for admin sections
-app.get('/admin/work', (req, res) => {
-  if (!req.session.loggedIn) {
-    return res.redirect('/admin');
-  }
-  res.sendFile(path.join(__dirname, 'admin.html'));
-});
-
-app.get('/admin/skill', (req, res) => {
-  if (!req.session.loggedIn) {
-    return res.redirect('/admin');
-  }
-  res.sendFile(path.join(__dirname, 'admin.html'));
-});
-
-app.get('/admin/education', (req, res) => {
-  if (!req.session.loggedIn) {
-    return res.redirect('/admin');
-  }
-  res.sendFile(path.join(__dirname, 'admin.html'));
-});
-
-app.get('/admin/experience', (req, res) => {
-  if (!req.session.loggedIn) {
-    return res.redirect('/admin');
-  }
-  res.sendFile(path.join(__dirname, 'admin.html'));
+// Admin sub-routes all render the same admin.html if logged in
+const adminSections = ['work', 'skill', 'education', 'experience'];
+adminSections.forEach(section => {
+  app.get(`/admin/${section}`, (req, res) => {
+    if (!req.session.loggedIn) return res.redirect('/admin');
+    res.sendFile(path.join(__dirname, 'admin.html'));
+  });
 });
 
 // Authentication
@@ -98,10 +82,8 @@ app.post('/admin/login', (req, res) => {
   const { username, password } = req.body;
   if (username === 'baghdad' && password === 'baghdad') {
     req.session.loggedIn = true;
-    res.redirect('/admin');
-  } else {
-    res.redirect('/admin');
   }
+  res.redirect('/admin');
 });
 
 app.post('/admin/logout', (req, res) => {
@@ -110,7 +92,7 @@ app.post('/admin/logout', (req, res) => {
   });
 });
 
-// Data management routes
+// Add work
 app.post('/admin/work', upload.array('images'), (req, res) => {
   if (!req.session.loggedIn) {
     return res.status(401).send('Unauthorized');
@@ -121,8 +103,6 @@ app.post('/admin/work', upload.array('images'), (req, res) => {
     const { title, description, client, links, link } = req.body;
 
     const images = [];
-
-    // Parse image links
     const linkInput = links || link || '';
     const parts = Array.isArray(linkInput) ? linkInput : [linkInput];
     parts.forEach(p => {
@@ -132,7 +112,6 @@ app.post('/admin/work', upload.array('images'), (req, res) => {
       });
     });
 
-    // Handle uploaded files
     if (req.files) {
       req.files.forEach(file => {
         images.push('/uploads/' + file.filename);
@@ -150,6 +129,7 @@ app.post('/admin/work', upload.array('images'), (req, res) => {
   }
 });
 
+// Add skill
 app.post('/admin/skill', (req, res) => {
   if (!req.session.loggedIn) {
     return res.status(401).send('Unauthorized');
@@ -173,6 +153,7 @@ app.post('/admin/skill', (req, res) => {
   }
 });
 
+// Add education
 app.post('/admin/education', (req, res) => {
   if (!req.session.loggedIn) {
     return res.status(401).send('Unauthorized');
@@ -190,6 +171,7 @@ app.post('/admin/education', (req, res) => {
   }
 });
 
+// Add experience
 app.post('/admin/experience', (req, res) => {
   if (!req.session.loggedIn) {
     return res.status(401).send('Unauthorized');
