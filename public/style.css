@@ -111,6 +111,14 @@ nav {
     gap: 40px;
 }
 
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
 .nav-item {
     text-decoration: none;
     color: var(--charcoal);
@@ -1054,10 +1062,20 @@ footer {
         font-size: 2rem;
     }
 
+    .menu-toggle {
+        display: block;
+        margin-bottom: 10px;
+    }
+
     .nav-container {
+        display: none;
         flex-direction: column;
         align-items: center;
         gap: 20px;
+    }
+
+    .nav-container.open {
+        display: flex;
     }
 
     .about-grid {
@@ -1188,6 +1206,22 @@ footer {
     .nav-container {
         gap: 15px;
     }
+    .menu-toggle {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .nav-container {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .nav-container.open {
+        display: flex;
+    }
+    
     .projects-grid {
         grid-template-columns: 1fr;
     }
