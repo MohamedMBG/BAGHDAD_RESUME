@@ -9,7 +9,7 @@ const app = express();
 const PORT = 3000;
 
 // Ensure uploads directory exists
-const uploadsDir = path.join(__dirname, 'public', 'uploads');
+const uploadsDir = path.join(__dirname, 'uploads');
 if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir, { recursive: true });
 }
@@ -43,12 +43,12 @@ function saveData(data) {
   fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2));
 }
 
-// Static files
-app.use(express.static(path.join(__dirname, 'public')));
+// Serve static files (like CSS or uploaded images)
+app.use(express.static(__dirname));
 
 // Routes
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.get('/data', (req, res) => {
@@ -58,9 +58,9 @@ app.get('/data', (req, res) => {
 // Admin routes
 app.get('/admin', (req, res) => {
   if (req.session.loggedIn) {
-    res.sendFile(path.join(__dirname, 'public', 'admin.html'));
+    res.sendFile(path.join(__dirname, 'admin.html'));
   } else {
-    res.sendFile(path.join(__dirname, 'public', 'login.html'));
+    res.sendFile(path.join(__dirname, 'login.html'));
   }
 });
 
@@ -69,40 +69,37 @@ app.get('/admin/work', (req, res) => {
   if (!req.session.loggedIn) {
     return res.redirect('/admin');
   }
-  res.sendFile(path.join(__dirname, 'public', 'admin.html'));
+  res.sendFile(path.join(__dirname, 'admin.html'));
 });
 
 app.get('/admin/skill', (req, res) => {
   if (!req.session.loggedIn) {
     return res.redirect('/admin');
   }
-  res.sendFile(path.join(__dirname, 'public', 'admin.html'));
+  res.sendFile(path.join(__dirname, 'admin.html'));
 });
 
 app.get('/admin/education', (req, res) => {
   if (!req.session.loggedIn) {
     return res.redirect('/admin');
   }
-  res.sendFile(path.join(__dirname, 'public', 'admin.html'));
+  res.sendFile(path.join(__dirname, 'admin.html'));
 });
 
 app.get('/admin/experience', (req, res) => {
   if (!req.session.loggedIn) {
     return res.redirect('/admin');
   }
-  res.sendFile(path.join(__dirname, 'public', 'admin.html'));
+  res.sendFile(path.join(__dirname, 'admin.html'));
 });
 
 // Authentication
 app.post('/admin/login', (req, res) => {
-  console.log('Login attempt:', req.body);
   const { username, password } = req.body;
   if (username === 'baghdad' && password === 'baghdad') {
     req.session.loggedIn = true;
-    console.log('Login successful');
     res.redirect('/admin');
   } else {
-    console.log('Login failed');
     res.redirect('/admin');
   }
 });
@@ -115,33 +112,25 @@ app.post('/admin/logout', (req, res) => {
 
 // Data management routes
 app.post('/admin/work', upload.array('images'), (req, res) => {
-  console.log('POST /admin/work called');
-  console.log('Session logged in:', req.session.loggedIn);
-  console.log('Request body:', req.body);
-  console.log('Files:', req.files);
-  
   if (!req.session.loggedIn) {
-    console.log('Unauthorized access attempt');
     return res.status(401).send('Unauthorized');
   }
-  
+
   try {
     const data = loadData();
     const { title, description, client, links, link } = req.body;
 
     const images = [];
 
-    // Parse image links from textarea (comma or newline separated)
+    // Parse image links
     const linkInput = links || link || '';
-    if (linkInput) {
-      const parts = Array.isArray(linkInput) ? linkInput : [linkInput];
-      parts.forEach(p => {
-        p.split(/[,\n]/).forEach(l => {
-          const trimmed = l.trim();
-          if (trimmed) images.push(trimmed);
-        });
+    const parts = Array.isArray(linkInput) ? linkInput : [linkInput];
+    parts.forEach(p => {
+      p.split(/[,\n]/).forEach(l => {
+        const trimmed = l.trim();
+        if (trimmed) images.push(trimmed);
       });
-    }
+    });
 
     // Handle uploaded files
     if (req.files) {
@@ -153,8 +142,7 @@ app.post('/admin/work', upload.array('images'), (req, res) => {
     const newWork = { title, description, client, images };
     data.works.push(newWork);
     saveData(data);
-    
-    console.log('Work added successfully:', newWork);
+
     res.redirect('/admin');
   } catch (error) {
     console.error('Error adding work:', error);
@@ -163,27 +151,21 @@ app.post('/admin/work', upload.array('images'), (req, res) => {
 });
 
 app.post('/admin/skill', (req, res) => {
-  console.log('POST /admin/skill called');
-  console.log('Session logged in:', req.session.loggedIn);
-  console.log('Request body:', req.body);
-  
   if (!req.session.loggedIn) {
-    console.log('Unauthorized access attempt');
     return res.status(401).send('Unauthorized');
   }
-  
+
   try {
     const data = loadData();
     const { category, tags } = req.body;
     const tagList = tags.split(',').map(t => t.trim()).filter(Boolean);
-    
+
     if (!data.skills[category]) {
       data.skills[category] = [];
     }
     data.skills[category] = data.skills[category].concat(tagList);
-    
+
     saveData(data);
-    console.log('Skill added successfully');
     res.redirect('/admin');
   } catch (error) {
     console.error('Error adding skill:', error);
@@ -192,18 +174,15 @@ app.post('/admin/skill', (req, res) => {
 });
 
 app.post('/admin/education', (req, res) => {
-  console.log('POST /admin/education called');
-  
   if (!req.session.loggedIn) {
     return res.status(401).send('Unauthorized');
   }
-  
+
   try {
     const data = loadData();
     const { date, title, subtitle, description } = req.body;
     data.education.push({ date, title, subtitle, description });
     saveData(data);
-    console.log('Education added successfully');
     res.redirect('/admin');
   } catch (error) {
     console.error('Error adding education:', error);
@@ -212,18 +191,15 @@ app.post('/admin/education', (req, res) => {
 });
 
 app.post('/admin/experience', (req, res) => {
-  console.log('POST /admin/experience called');
-  
   if (!req.session.loggedIn) {
     return res.status(401).send('Unauthorized');
   }
-  
+
   try {
     const data = loadData();
     const { date, title, subtitle, description } = req.body;
     data.experience.push({ date, title, subtitle, description });
     saveData(data);
-    console.log('Experience added successfully');
     res.redirect('/admin');
   } catch (error) {
     console.error('Error adding experience:', error);
@@ -234,12 +210,4 @@ app.post('/admin/experience', (req, res) => {
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
-  console.log('Available routes:');
-  console.log('- GET  / (home page)');
-  console.log('- GET  /admin (admin dashboard)');
-  console.log('- POST /admin/login');
-  console.log('- POST /admin/work');
-  console.log('- POST /admin/skill');
-  console.log('- POST /admin/education');
-  console.log('- POST /admin/experience');
 });
