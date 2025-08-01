@@ -27,13 +27,13 @@
       "client": "B&B car renting",
       "category": "mobile featured",
       "images": [
-        "/uploads/baae32db3ea902c50274269ff0e3346c",
-        "/uploads/47b89ec79b9ab9356aa0470d94b154ba",
-        "/uploads/98916a7b6ce85b10fa3e7243cf1769cb",
-        "/uploads/0421ee52c91bab3f11d8f342d0d4649d",
-        "/uploads/6b568a681f0242f6269ffd2c85934147",
-        "/uploads/fbbe77fff9fc0664c6fa82799889c345",
-        "/uploads/655b823ff5bb28c52826ee52d5ec6ce5"
+        "uploads/baae32db3ea902c50274269ff0e3346c",
+        "uploads/47b89ec79b9ab9356aa0470d94b154ba",
+        "uploads/98916a7b6ce85b10fa3e7243cf1769cb",
+        "uploads/0421ee52c91bab3f11d8f342d0d4649d",
+        "uploads/6b568a681f0242f6269ffd2c85934147",
+        "uploads/fbbe77fff9fc0664c6fa82799889c345",
+        "uploads/655b823ff5bb28c52826ee52d5ec6ce5"
       ]
     },
     {
@@ -42,8 +42,8 @@
       "client": "MAXTEAM VISUAL",
       "category": "Website",
       "images": [
-        "/uploads/86b396f3d7d286e16b49aadaa70ec1a8",
-        "/uploads/5769361c533e7d205fb3a7aba7417fad"
+        "uploads/86b396f3d7d286e16b49aadaa70ec1a8",
+        "uploads/5769361c533e7d205fb3a7aba7417fad"
       ]
     }
   ],
