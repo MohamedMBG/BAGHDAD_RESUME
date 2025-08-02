@@ -57,6 +57,18 @@
         "/uploads/ac6b36d716c03a600ee447513ee18cb0",
         "/uploads/31227f1264d48f10dfb5474a941c3a2f"
       ]
+    },
+    {
+      "title": "Hair salon",
+      "description": "I designed and developed a fully responsive website for a modern hair salon, focusing on elegant design and user experience. The site showcases the salon’s team, services, gallery, and includes a booking CTA for client reservations. Built with HTML, CSS, and Tailwind CSS, the layout adapts smoothly across all devices. Emphasis was placed on aesthetic presentation, brand identity, and clean code structure to reflect the salon’s premium image.  Key Features:  Responsive layout optimized for desktop and mobile  Hero section with strong branding and call-to-action  Services section with price breakdown  Gallery to showcase the salon's work  Team introduction section  Smooth scrolling and clean UI",
+      "client": "Hair salon",
+      "images": [
+        "/uploads/826155cec6c214529d5f0b1d2c0e8a96",
+        "/uploads/503bb6a238694471166c271725dc2a75",
+        "/uploads/1206e41c05c67d2de62fd6fa3a6f4775",
+        "/uploads/2264dff3ac6e678ccbd4bb53787d4f79",
+        "/uploads/9fe2820cdf18f6470830dd33edc78172"
+      ]
     }
   ],
   "skills": {
