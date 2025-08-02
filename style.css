@@ -540,6 +540,16 @@ nav {
     margin-bottom: 25px;
     line-height: 1.7;
     font-size: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* limit to 2 lines */
+    -webkit-box-orient: vertical;
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.7;
+    font-size: 1rem;
+    position: relative;
 }
 
 .project-meta {
