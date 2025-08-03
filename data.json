@@ -1,31 +1,10 @@
 {
   "works": [
     {
-      "title": "E-Commerce Android App",
-      "description": "Full-featured e-commerce mobile application with user authentication, product catalog, shopping cart, and payment integration. Built with modern Android development practices using Kotlin and Firebase.",
-      "client": "Featured Project",
-      "category": "mobile featured",
-      "images": []
-    },
-    {
-      "title": "Business Website Portfolio",
-      "description": "Modern, responsive website for a digital agency featuring dynamic content management, optimized performance, and seamless user experience across all devices.",
-      "client": "Digital Agency",
-      "category": "web",
-      "images": []
-    },
-    {
-      "title": "Task Management System",
-      "description": "Comprehensive task management application with real-time collaboration features, intuitive user interface, and advanced project tracking capabilities.",
-      "client": "Internal Project",
-      "category": "web",
-      "images": []
-    },
-    {
       "title": "B&B car renting",
       "description": "A comprehensive car rental management application with reservation system for clients, featuring booking management, payment processing, and fleet tracking.",
       "client": "B&B car renting",
-      "category": "mobile featured",
+      "category": "mobile, featured",
       "images": [
         "uploads/baae32db3ea902c50274269ff0e3346c",
         "uploads/47b89ec79b9ab9356aa0470d94b154ba",
@@ -68,6 +47,18 @@
         "/uploads/1206e41c05c67d2de62fd6fa3a6f4775",
         "/uploads/2264dff3ac6e678ccbd4bb53787d4f79",
         "/uploads/9fe2820cdf18f6470830dd33edc78172"
+      ]
+    },
+    {
+      "title": " B&B University – Mobile Academic Management App for EMSI",
+      "description": "B&B University is a mobile application developed in Java using Android Studio and Firebase, designed to digitize and streamline academic management for EMSI. This app provides tailored dashboards for students, professors, and administrators, enabling secure authentication, real-time grade entry, automatic GPA calculation, and absence tracking. It ensures data transparency, minimizes administrative effort, and enhances user experience across all academic roles.  Built on a Firebase backend with modular architecture, the system guarantees performance, scalability, and secure access control. The intuitive UI is fully responsive and role-specific, designed to operate seamlessly on mobile devices and tablets. This project reflects a robust application of object-oriented design, UML-based planning (use case, class, and sequence diagrams), and real-world database integration.",
+      "client": " B&B University",
+      "images": [
+        "/uploads/b6ecf9498af3afbd24ecd9018c673aa2",
+        "/uploads/73722070710a6bb5ec448deeb8f1fba9",
+        "/uploads/1562cd33116ec7debc2b097f9c6aa1be",
+        "/uploads/475f884fe8a108c7c20622108bfef2be",
+        "/uploads/f5251237e19e2ff2420951ba9a98902e"
       ]
     }
   ],
