@@ -361,15 +361,16 @@
         // Get tech stack based on project title (demo function)
         function getTechStackForProject(title) {
             const techStacks = {
-                'E-Commerce Android App': ['Android Studio', 'Java', 'Kotlin', 'Firebase', 'SQLite'],
                 'Business Website Portfolio': ['HTML5', 'CSS3', 'JavaScript', 'React', 'Node.js'],
                 'MAXTEAM Website': ['WORDPRESS', 'CSS3', 'JavaScript', 'HTML5'],
+
                 'web-based management system': ['LARAVEL', 'PHP', 'JavaScript', 'HTML5', 'CSS3'],
                 'Task Management System': ['React', 'Node.js', 'MongoDB', 'Socket.io', 'Express'],
                 'Hair salon': ['HTML5', 'JAVASCRIPT', 'CSS3', 'Node.js', 'Express'],
-                'B&B car renting': ['Android', 'Java', 'Firebase', 'Google Maps API', 'Payment Gateway']
+                'B&B car renting mobile app': ['Android', 'Java', 'Firebase', 'Google Maps API', 'Payment Gateway'],
+                'B&B University – Mobile Academic Management App for EMSI': ['Android Studio', 'Java', 'Firebase']
             };
-            return techStacks[title];
+            return techStacks[title.trim()] || [];
         }
 
         // Determine project category based on title and description
